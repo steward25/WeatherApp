@@ -1,7 +1,7 @@
 
 # 🌦️ WeatherApp
 
-A simple weather forecasting Android app using OpenWeatherMap API.
+A simple weather forecast app built with Kotlin, using the OpenWeatherMap API. It shows the current and future weather for your location, with a clean and modular architecture.
 
 ## 🔑 Getting Started
 
@@ -22,6 +22,14 @@ Add or modify the following line, replacing YOUR_ACTUAL_OPENWEATHERMAP_API_KEY w
 ```properties
 API_KEY=YOUR_ACTUAL_OPENWEATHERMAP_API_KEY
 ```
+## 🚀 Features
+
+- Current weather based on geolocation
+- 7-day weather forecast
+- Clean architecture using MVVM
+- Offline caching with Room
+- IP-based geolocation as fallback
+
 
 ## 📦 Project Structure
 
@@ -69,6 +77,34 @@ API_KEY=YOUR_ACTUAL_OPENWEATHERMAP_API_KEY
     - SignInViewModel.kt     // ViewModel for handling sign-in logic
     - WeatherViewModel.kt    // ViewModel for weather data operations
 ```
+
+## 🛠️ API Endpoints
+```kotlin
+object ApiEndpoints {
+    const val BASE_URL_WEATHER = "https://api.openweathermap.org/data/"
+    const val GEOLOCATION_FROM_IP = "https://ipwho.is/"
+
+    fun currentWeather(lat: Double, lon: Double, apiKey: String): String =
+        "${BASE_URL_WEATHER}2.5/weather?lat=$lat&lon=$lon&appid=$apiKey&units=metric"
+
+    fun forecastWeather(lat: Double, lon: Double, apiKey: String): String =
+        "${BASE_URL_WEATHER}3.0/onecall?lat=$lat&lon=$lon&exclude=minutely,hourly,alerts,current&appid=$apiKey&units=metric"
+
+    fun weatherIconUrl(iconCode: String): String =
+        "https://openweathermap.org/img/wn/${iconCode}@2x.png"
+}
+```
+
+## 📲 Dependencies
+
+- Ktor
+- Room
+- Kotlin Coroutines + Flow
+- Kotlin Serialization
+- DataStore
+- Compose UI
+- ViewModel + LiveData
+- Coil
 
 ## 📸 Screenshot
 
