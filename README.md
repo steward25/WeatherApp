@@ -20,7 +20,7 @@ Open the gradle.properties file in the root of your project.
 Add or modify the following line, replacing YOUR_ACTUAL_OPENWEATHERMAP_API_KEY with your actual key:
 
 ```properties
-API_KEY=OPEN_WEATHER_API_KEY=YOUR_ACTUAL_OPENWEATHERMAP_API_KEY
+API_KEY=YOUR_ACTUAL_OPENWEATHERMAP_API_KEY
 ```
 
 ## 📦 Project Structure
