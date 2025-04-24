@@ -71,18 +71,8 @@ OPEN_WEATHER_API_KEY=your_api_key_here
 ```
 
 ## 📸 Screenshot
-
-### Current Weather
-![Home Screen](screenshots/current_weather.png)
-
-### Forecast Screen
-![Forecast Screen](screenshots/weather_forecast.png)
-
-<h2 align="center">📸 Screenshots</h2>
-
 <p align="center">
-  <img src="screenshots/current_weather.png" alt="Home Screen" width="45%" />
+  <img src="screenshot/current_weather.png" alt="Home Screen" width="45%" />
   &nbsp;
-  <img src="screenshots/screenshot_2.png" alt="Forecast Screen" width="45%" />
-weather_forecast
+  <img src="screenshot/screenshot_2.png" alt="Forecast Screen" width="45%" />
 
