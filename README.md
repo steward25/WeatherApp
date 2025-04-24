@@ -16,11 +16,11 @@ cd weatherapp
 
 You will need an API key from OpenWeatherMap.
 
-Create a file named `local.properties` in the root of your project (if not already there).  
-Add the following line:
+Open the gradle.properties file in the root of your project.
+Add or modify the following line, replacing YOUR_ACTUAL_OPENWEATHERMAP_API_KEY with your actual key:
 
 ```properties
-OPEN_WEATHER_API_KEY=your_api_key_here
+API_KEY=OPEN_WEATHER_API_KEY=YOUR_ACTUAL_OPENWEATHERMAP_API_KEY
 ```
 
 ## 📦 Project Structure
