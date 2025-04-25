@@ -109,8 +109,8 @@ object ApiEndpoints {
 ## 📸 Screenshot
 
 ### Current Weather
-![Home Screen](screenshot/current_weather.png)
+![Home Screen](screenshot/current_weather.PNG)
 
 ### Forecast Screen
-![Forecast Screen](screenshot/weather_forecast.png)
+![Forecast Screen](screenshot/weather_forecast.PNG)
 
