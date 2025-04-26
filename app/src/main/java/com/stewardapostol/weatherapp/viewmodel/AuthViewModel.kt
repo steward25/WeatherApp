@@ -19,9 +19,12 @@ class AuthViewModel(application: Application) : AndroidViewModel(application) {
     fun checkLoggedInStatus() {
         viewModelScope.launch {
             val (savedEmail, savedPassword, state) = getApplication<Application>().getCredentials()
-            if (state!!) {
-                isLoggedIn.value = true
+            state?.let {
+                if (state) {
+                    isLoggedIn.value = true
+                }
             }
+
             loginState.value = ""
         }
     }
