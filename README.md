@@ -65,17 +65,12 @@ API_KEY=YOUR_ACTUAL_OPENWEATHERMAP_API_KEY
 
 - view/
   - activity/
-    - BaseActivity.kt        // Base class for activities
-    - SignInActivity.kt      // Login screen
     - WeatherActivity.kt     // Main weather display UI
-
-  - fragment/
-    - ViewBindingAdapter.kt  // Binds data to views in layout XML
-    - WeatherIcons.kt        // Maps weather codes to icons
-
   - viewmodel/
-    - SignInViewModel.kt     // ViewModel for handling sign-in logic
+    - AuthViewModel.kt     // ViewModel for handling sign-in logic
     - WeatherViewModel.kt    // ViewModel for weather data operations
+   - WeatherIcons.kt        // Maps weather codes to icons
+  
 ```
 
 ## 🛠️ API Endpoints
@@ -108,7 +103,7 @@ object ApiEndpoints {
 
 ## 📸 Screenshot
 <p align="center">
-    <img src="/screenshot/current_weather.png" alt="Current Weather" width="250" style="margin-right: 20px;"/>
-    <img src="/screenshot/weather_forecast.png" alt="Weather Forecast" width="250" style="margin-right: 20px;"/>
     <img src="/screenshot/login_screen.png" alt="Login Screen" width="250" style="margin-right: 20px;"/>
+    <img src="/screenshot/current_weather.PNG" alt="Current Weather" width="250" style="margin-right: 20px;"/>
+    <img src="/screenshot/weather_forecast.PNG" alt="Weather Forecast" width="250" style="margin-right: 20px;"/>    
 </p>
