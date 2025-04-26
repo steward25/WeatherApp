@@ -62,6 +62,8 @@ android {
 dependencies {
 
     // Implementation dependencies
+    implementation(libs.accompanist.placeholder)
+    implementation(libs.accompanist.pager)
     implementation(libs.activity.compose)
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.constraintlayout)

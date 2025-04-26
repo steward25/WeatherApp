@@ -1,4 +1,6 @@
 [versions]
+accompanist_pager = "0.25.1"
+accompanist_placeholder = "0.36.0"
 activity-compose = "1.8.2"
 agp = "8.7.3"
 androidxComposeUi = "1.6.4"
@@ -35,6 +37,8 @@ viewpager2 = "1.1.0"
 
 
 [libraries]
+accompanist-placeholder = { module = "com.google.accompanist:accompanist-placeholder-material3", version.ref = "accompanist_placeholder"}
+accompanist-pager = { module = "com.google.accompanist:accompanist-pager", version.ref = "accompanist_pager" }
 activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activity-compose" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
@@ -79,6 +83,7 @@ room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
 room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
 truth = { module = "com.google.truth:truth", version.ref = "truth" }
 viewpager2 = { group = "androidx.viewpager2", name = "viewpager2", version.ref = "viewpager2" }
+
 
 
 [plugins]

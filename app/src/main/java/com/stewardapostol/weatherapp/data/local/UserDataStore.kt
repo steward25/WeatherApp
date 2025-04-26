@@ -3,6 +3,7 @@ package com.stewardapostol.weatherapp.data.local
 import android.content.Context
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
@@ -12,6 +13,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 
@@ -21,6 +23,7 @@ object UserDataStore {
 
     val USERNAME = stringPreferencesKey("username")
     val PASSWORD = stringPreferencesKey("password")
+    val STATE  = booleanPreferencesKey("login_state")
 
 
     suspend fun Context.saveUserDataStore(pref: PREF) {
@@ -30,6 +33,7 @@ object UserDataStore {
                     pref.apply {
                         datastore[UserDataStore.USERNAME] = USERNAME
                         datastore[UserDataStore.PASSWORD] = PASSWORD
+                        datastore[UserDataStore.STATE] = STATE
                     }
                 }
             }
@@ -41,6 +45,7 @@ object UserDataStore {
             PREF.apply {
                 USERNAME = preferences[UserDataStore.USERNAME] ?: ""
                 PASSWORD = preferences[UserDataStore.PASSWORD] ?: ""
+                STATE = preferences[UserDataStore.STATE] ?: false
             }
         }
     }
@@ -51,8 +56,15 @@ object UserDataStore {
             PREF.apply {
                 USERNAME = pref[UserDataStore.USERNAME] ?: ""
                 PASSWORD = pref[UserDataStore.PASSWORD] ?: ""
+                STATE = pref[UserDataStore.STATE] ?: false
             }
         })
+    }
+
+
+    suspend fun Context.getCredentials(): Triple<String?, String?, Boolean?> {
+        val prefs = userDataStore.data.first()
+        return Triple(prefs[UserDataStore.USERNAME], prefs[UserDataStore.PASSWORD], prefs[UserDataStore.STATE])
     }
 
     fun Context.readUserDataStore(

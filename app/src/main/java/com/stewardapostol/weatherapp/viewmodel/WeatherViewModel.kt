@@ -4,8 +4,6 @@ import android.app.Application
 import android.location.Location
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.stewardapostol.weatherapp.data.model.AppsData
 import com.stewardapostol.weatherapp.data.model.CurrentWeatherEntity
@@ -27,9 +25,8 @@ class WeatherViewModel(application: Application) : AndroidViewModel(application)
     private val _weatherForecastData = MutableStateFlow<AppsData?>(null)
     val weatherForecastData: StateFlow<AppsData?> = _weatherForecastData
 
-
-    private val _locMessage = MutableLiveData<Location?>(null)
-    val locMessage: LiveData<Location?> = _locMessage
+    private val _locMessage = MutableStateFlow<Location?>(null)
+    val locMessage: StateFlow<Location?> = _locMessage
 
     private val _errorMessage = MutableStateFlow<String?>(null)
     val errorMessage: StateFlow<String?> = _errorMessage
@@ -45,19 +42,19 @@ class WeatherViewModel(application: Application) : AndroidViewModel(application)
                 _isLoading.value = false
 
                 if (data != null) {
-                    when(data){
-                        is CurrentWeatherEntity ->  _weatherData.value = data
+                    when (data) {
+                        is CurrentWeatherEntity -> _weatherData.value = data
                         is ForecastWeatherEntity -> _weatherForecastData.value = data
                         is ErrorResponse -> _errorMessage.value = data.message
                     }
-                    Log.e(TAG, "@fetchAllWeatherData: "+ data)
+                    Log.e(TAG, "@fetchAllWeatherData: $data")
                 } else {
                     _errorMessage.value = "Failed to fetch data."
                     Log.e(TAG, "@fetchAllWeatherData: Failed to fetch weather data.")
                 }
             },
             locBack = {
-                _locMessage.postValue(it)
+                _locMessage.value = it
             }
         )
     }
@@ -77,6 +74,5 @@ class WeatherViewModel(application: Application) : AndroidViewModel(application)
             }
         }
     }
-
-
 }
+
