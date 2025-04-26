@@ -107,10 +107,8 @@ object ApiEndpoints {
 - Coil
 
 ## 📸 Screenshot
-
-### Current Weather
-![Home Screen](screenshot/current_weather.png)
-
-### Forecast Screen
-![Forecast Screen](screenshot/weather_forecast.png)
-
+<p align="center">
+    <img src="/screenshot/current_weather.png" alt="Current Weather" width="250" style="margin-right: 20px;"/>
+    <img src="/screenshot/weather_forecast.png" alt="Weather Forecast" width="250" style="margin-right: 20px;"/>
+    <img src="/screenshot/login_screen.png" alt="Login Screen" width="250" style="margin-right: 20px;"/>
+</p>
